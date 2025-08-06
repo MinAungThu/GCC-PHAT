@@ -13,24 +13,30 @@ In essence, GCC-PHAT is constructing a new correlation function based on the inp
 ## Process of GCC-PHAT for two microphones -
 
 1. We have two audio samples (500 Hz)  with similar amplitude but just a difference in phase (with a delay of 5 samples).
+   
 ![](https://github.com/MinAungThu/GCC-PHAT/blob/main/resources/Figure_1.png) 
 
-3. To remove some noise, they will be processed in a windowing function.
+2. To remove some noise, they will be processed in a windowing function.
+   
 ![](https://github.com/MinAungThu/GCC-PHAT/blob/main/resources/Figure_2.png)
 
-5. Then, we will apply a Fast Fourier Transform, to change them from the time domain to frequency domain.
+3. Then, we will apply a Fast Fourier Transform, to change them from the time domain to frequency domain.
+   
 ![](https://github.com/MinAungThu/GCC-PHAT/blob/main/resources/Figure_3.png)
 
-7. In the frequency domain, we will calculate the cross-power spectrum with phase transform of those two signals. Basically, this is the cross correlation in frequency domain.
+4. In the frequency domain, we will calculate the cross-power spectrum with phase transform of those two signals. Basically, this is the cross correlation in frequency domain.
+   
 ![](https://github.com/MinAungThu/GCC-PHAT/blob/main/resources/Figure_4.png)
 
-9. Then, we apply an inverse fourier transform to change that cross power spectrum function in the frequency domain into the time domain. In time domain, the cross-power spectrum becomes cross correlation. 
+5. Then, we apply an inverse fourier transform to change that cross power spectrum function in the frequency domain into the time domain. In time domain, the cross-power spectrum becomes cross correlation. 
 
-10. Afterwards, we can take the argmax (the input value that can make the highest value) of the cross-correlation function as TDOA.
+6. Afterwards, we can take the argmax (the input value that can make the highest value) of the cross-correlation function as TDOA. Once we divide the argmax in samples by sampling frequency (Hz), we will obtain 
 
 ![](https://github.com/MinAungThu/GCC-PHAT/blob/main/resources/Figure_5.png)
 
+
 In mathematical Terms, it is like this - 
+
 ![](resources/maths.png) 
 
 
@@ -43,7 +49,7 @@ In mathematical Terms, it is like this -
 
 
 
-Feel free to reach out to me 
+Feel free to reach out to me via [Linkedin](https://www.linkedin.com/in/minaungthu/)
 
 
 
